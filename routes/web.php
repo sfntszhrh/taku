@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\ProfileController;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontController::class, 'index']);
 
 Route::get('/admin/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home.index');
 
@@ -32,8 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('place', PlaceController::class);
 });
 
+Route::get('/maps', [FrontController::class, 'maps'])->name('peta.wisata');
+Route::get('/categories', [FrontController::class, 'categories'])->name('category.wisata');
+
 // Route::group(['prefix' => 'admin'], function() {
 
 // })
 
 require __DIR__.'/auth.php';
+
