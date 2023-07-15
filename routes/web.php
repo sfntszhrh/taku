@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlaceController::class);
 });
-
+Route::get('/home', [FrontController::class, 'home'])->name('home.wisata');
 Route::get('/maps', [FrontController::class, 'maps'])->name('peta.wisata');
 Route::get('/categories', [FrontController::class, 'categories'])->name('category.wisata');
 

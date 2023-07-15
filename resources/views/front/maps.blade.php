@@ -5,10 +5,8 @@
     <section id="posts" class="posts">
         <div class="container" data-aos="fade-up">
           <div class="row g-5">
-            
             <x-mapbox id="mapId" style="heigt:400%; width: 100%," id="map" :zoom="10" :navigationControls="true" mapbox="//styles/mapbox/outdoors-v12" :center="['long' => 8, 'lat' => 10]"/>
-            
-          </div> <!-- End .row -->
+          </div>
         </div>
       </section>
 </main>
