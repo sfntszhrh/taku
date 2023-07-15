@@ -2,38 +2,40 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Soengennep</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>Soengennep</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{{ asset('front/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('front/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="{{ asset('front/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('front/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('front/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('front/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('front/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('front/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('front/vendor/aos/aos.css') }}" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('front/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/vendor/aos/aos.css') }}" rel="stylesheet">
 
-  <!-- Template Main CSS Files -->
-  <link href="{{ asset('front/css/variables.css') }}" rel="stylesheet">
-  <link href="{{ asset('front/css/main.css') }}" rel="stylesheet">
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+    <!-- Template Main CSS Files -->
+    <link href="{{ asset('front/css/variables.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/css/main.css') }}" rel="stylesheet">
+    {{-- <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script> --}}
 
+    @stack('css')
 
-
-  <!-- =======================================================
+    <!-- =======================================================
   * Template Name: ZenBlog
   * Updated: May 30 2023 with Bootstrap v5.3.0
   * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
@@ -44,17 +46,17 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  @include('front.header')
- <!-- End Header -->
+    <!-- ======= Header ======= -->
+    @include('front.header')
+    <!-- End Header -->
 
- @yield('content')
+    @yield('content')
 
     <!-- ======= Hero Slider Section ======= -->
     <!-- End Hero Slider Section -->
 
     <!-- ======= Post Grid Section ======= -->
-     <!-- End Post Grid Section -->
+    <!-- End Post Grid Section -->
 
     <!-- ======= Culture Category Section ======= -->
     <!-- End Culture Category Section -->
@@ -65,23 +67,24 @@
     <!-- ======= Lifestyle Category Section ======= -->
     <!-- End Lifestyle Category Section -->
 
-  </main><!-- End #main -->
+    </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-@include('front.footer')
+    <!-- ======= Footer ======= -->
+    @include('front.footer')
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="{{ asset("front/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
-  <script src="{{ asset('front/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('front/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('front/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('front/vendor/php-email-form/validate.js') }}"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('front/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('front/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('front/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('front/vendor/php-email-form/validate.js') }}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{{ asset('front/js/main.js') }}"></script>
-
+    <!-- Template Main JS File -->
+    <script src="{{ asset('front/js/main.js') }}"></script>
+    @stack('javascript')
 </body>
 
 </html>

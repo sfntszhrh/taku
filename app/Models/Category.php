@@ -13,6 +13,6 @@ class Category extends Model
 
     public function places()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasOne(Category::class);
     }
 }

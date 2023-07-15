@@ -9,24 +9,21 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes || semua link di atur disini ya ||
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
 Route::get('/', [FrontController::class, 'index']);
 
-Route::get('/admin/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home.index');
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlaceController::class);
 });
@@ -39,4 +36,3 @@ Route::get('/categories', [FrontController::class, 'categories'])->name('categor
 // })
 
 require __DIR__.'/auth.php';
-
