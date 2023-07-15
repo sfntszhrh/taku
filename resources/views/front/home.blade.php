@@ -8,7 +8,7 @@
           <div class="swiper sliderFeaturedPosts">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-1.jpg');">
+                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('front/img/gili-labak.jpg') }}');">
                   <div class="img-bg-inner">
                     <h2>The Best Homemade Masks for Face (keep the Pimples Away)</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -17,7 +17,7 @@
               </div>
 
               <div class="swiper-slide">
-                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-2.jpg');">
+                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('front/img/pulau-kangean.jpg') }}');">
                   <div class="img-bg-inner">
                     <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -26,7 +26,7 @@
               </div>
 
               <div class="swiper-slide">
-                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-3.jpg');">
+                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('front/img/gili-iyang.jpg') }}');">
                   <div class="img-bg-inner">
                     <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -35,7 +35,7 @@
               </div>
 
               <div class="swiper-slide">
-                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-4.jpg');">
+                <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset('front/img/post-slide-4.jpg') }}');">
                   <div class="img-bg-inner">
                     <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -61,13 +61,13 @@
       <div class="row g-5">
         <div class="col-lg-4">
           <div class="post-entry-1 lg">
-            <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+            <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-1.jpg') }}" alt="" class="img-fluid"></a>
             <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
             <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
             <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque. Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
 
             <div class="d-flex align-items-center author">
-              <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+              <div class="photo"><img src="{{ asset('front/img/person-1.jpg') }}" alt="" class="img-fluid"></div>
               <div class="name">
                 <h3 class="m-0 p-0">Cameron Williamson</h3>
               </div>
@@ -80,17 +80,17 @@
           <div class="row g-5">
             <div class="col-lg-4 border-start custom-border">
               <div class="post-entry-1">
-                <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt="" class="img-fluid"></a>
                 <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                 <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
               </div>
               <div class="post-entry-1">
-                <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-5.jpg') }}" alt="" class="img-fluid"></a>
                 <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
                 <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
               </div>
               <div class="post-entry-1">
-                <a href="single-post.html"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-7.jpg') }}" alt="" class="img-fluid"></a>
                 <div class="post-meta"><span class="date">Design</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
                 <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
               </div>
@@ -362,6 +362,7 @@
         <h2>Lifestyle</h2>
         <div><a href="category.html" class="more">See All Lifestyle</a></div>
       </div>
+
 
       <div class="row g-5">
         <div class="col-lg-4">
