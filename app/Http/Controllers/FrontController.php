@@ -15,6 +15,10 @@ class FrontController extends Controller
     {
         return view('front.maps');
     }
+    public function places()
+    {
+        return view('front.places');
+    }
    
 
 }

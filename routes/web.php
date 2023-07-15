@@ -29,7 +29,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 });
 Route::get('/front/home', [FrontController::class, 'index'])->name('home.wisata');
 Route::get('/maps', [FrontController::class, 'maps'])->name('peta.wisata');
-Route::get('/categories', [FrontController::class, 'categories'])->name('category.wisata');
+Route::get('/front/places', [FrontController::class, 'places'])->name('tempat.wisata');
+
 
 // Route::group(['prefix' => 'admin'], function() {
 

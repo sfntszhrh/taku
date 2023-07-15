@@ -20,7 +20,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="single-post.html">Place</a></li>
+          <li><a href="{{ route('tempat.wisata') }}">Place</a></li>
           <li><a href="{{ route('peta.wisata') }}">Maps</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
