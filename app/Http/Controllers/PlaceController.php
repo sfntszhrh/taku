@@ -22,7 +22,7 @@ class PlaceController extends Controller
     public function create()
     {
         $data=place::all();
-        return view('admin.place.add', compact('$data'));
+        return view('admin.place.add', compact('data'));
     }
 
     /**
