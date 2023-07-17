@@ -4,7 +4,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Songennep</h1>
+        <h1>Soengennep</h1>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -14,10 +14,10 @@
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
              
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Wisata</a></li>
+              <li><a href="#">Kuliner</a></li>
+              <li><a href="#">Hotel</a></li>
+              <li><a href="#">Tempat Belanja</a></li>
             </ul>
           </li>
           <li><a href="{{ route('tempat.wisata') }}">Place</a></li>
