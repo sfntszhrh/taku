@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->string('lat')->nullable();
             $table->string('long')->nullable();
+            $table->integer('viewers')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

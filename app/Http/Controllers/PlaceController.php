@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Place;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $data=place::all();
+        $data= Place::all();
         return view('admin.place.index', compact('data'));
     }
 
@@ -21,7 +22,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        $data=place::all();
+        $data = Category::all();
         return view('admin.place.add', compact('data'));
     }
 
@@ -30,7 +31,17 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'category_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $save = Place::create($request->all());
+
+        if ($save) {
+            return redirect()->route('place.index');
+        }
     }
 
     /**
