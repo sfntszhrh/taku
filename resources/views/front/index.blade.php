@@ -49,23 +49,8 @@
     <!-- ======= Header ======= -->
     @include('front.header')
     <!-- End Header -->
-
-    @yield('content')
-
-    <!-- ======= Hero Slider Section ======= -->
-    <!-- End Hero Slider Section -->
-
-    <!-- ======= Post Grid Section ======= -->
-    <!-- End Post Grid Section -->
-
-    <!-- ======= Culture Category Section ======= -->
-    <!-- End Culture Category Section -->
-
-    <!-- ======= Business Category Section ======= -->
-    <!-- End Business Category Section -->
-
-    <!-- ======= Lifestyle Category Section ======= -->
-    <!-- End Lifestyle Category Section -->
+    <main id="main">
+        @yield('content')
 
     </main><!-- End #main -->
 

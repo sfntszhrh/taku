@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', [FrontController::class, 'index'])->name('front.home');
 
 
 Route::middleware('auth')->group(function () {
@@ -27,9 +27,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlaceController::class);
 });
+Route::get('/', [FrontController::class, 'index'])->name('front.home');
+Route::get('/front/maps', [FrontController::class, 'maps'])->name('peta.wisata');
+Route::get('/front/places', [FrontController::class, 'places'])->name('tempat.wisata');
 
-Route::get('/maps', [FrontController::class, 'maps'])->name('peta.wisata');
-Route::get('/categories', [FrontController::class, 'categories'])->name('category.wisata');
 
 // Route::group(['prefix' => 'admin'], function() {
 
