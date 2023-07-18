@@ -75,126 +75,72 @@
     <section id="posts" class="posts">
         <div class="container" data-aos="fade-up">
             <div class="row g-5">
-                <div class="col-lg-4">
-                    <div class="post-entry-1 lg">
-                        <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-1.jpg') }}" alt=""
-                                class="img-fluid"></a>
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span>
-                            <span>Jul 5th '22</span>
-                        </div>
-                        <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
-                        <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                            temporibus repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil
-                            tempore odit ab minus eveniet praesentium, similique blanditiis molestiae ut saepe
-                            perspiciatis officia nemo, eos quae cumque. Accusamus fugiat architecto rerum animi atque
-                            eveniet, quo, praesentium dignissimos</p>
-
-                        <div class="d-flex align-items-center author">
-                            <div class="photo"><img src="{{ asset('front/img/person-1.jpg') }}" alt=""
-                                    class="img-fluid"></div>
-                            <div class="name">
-                                <h3 class="m-0 p-0">Cameron Williamson</h3>
+                @foreach ($data->splice(0, 1) as $item)
+                    <div class="col-lg-4">
+                        <div class="post-entry-1 lg">
+                            <a href="{{ route('tempat.detil', $item->id) }}"><img
+                                    src="{{ asset('front/img/post-landscape-1.jpg') }}" alt=""
+                                    class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                    class="mx-1">&bullet;</span>
+                                <span>{{ $item->viewers ? $item->viewers : '0' }} views</span>
                             </div>
+                            <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
+                            <p class="mb-4 d-block">{{ $item->description }}</p>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                @endforeach
 
                 <div class="col-lg-8">
                     <div class="row g-5">
                         <div class="col-lg-4 border-start custom-border">
-                            <div class="post-entry-1">
-                                <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-2.jpg') }}"
-                                        alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Sport</span> <span
-                                        class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
-                            </div>
-                            <div class="post-entry-1">
-                                <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-5.jpg') }}"
-                                        alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span>
-                                    <span>Jul 17th '22</span></div>
-                                <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video
-                                        Calls?</a></h2>
-                            </div>
-                            <div class="post-entry-1">
-                                <a href="single-post.html"><img src="{{ asset('front/img/post-landscape-7.jpg') }}"
-                                        alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Design</span> <span
-                                        class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
-                                <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting
-                                        Places On the Web?</a></h2>
-                            </div>
+                            @foreach ($data->splice(1, 3) as $item)
+                                <div class="post-entry-1">
+                                    <a href="{{ route('tempat.detil', $item->id) }}"><img
+                                            src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
+                                            class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                            class="mx-1">&bullet;</span>
+                                        <span>{{ $item->viewers ? $item->viewers : '0' }} views</span>
+                                    </div>
+                                    <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
+                                </div>
+                            @endforeach
+
                         </div>
                         <div class="col-lg-4 border-start custom-border">
-                            <div class="post-entry-1">
-                                <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt=""
-                                        class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Business</span> <span
-                                        class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                <h2><a href="single-post.html">6 Easy Steps To Create Your Own Cute Merch For
-                                        Instagram</a></h2>
-                            </div>
-                            <div class="post-entry-1">
-                                <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt=""
-                                        class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Tech</span> <span
-                                        class="mx-1">&bullet;</span> <span>Mar 1st '22</span></div>
-                                <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a>
-                                </h2>
-                            </div>
-                            <div class="post-entry-1">
-                                <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt=""
-                                        class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Travel</span> <span
-                                        class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
-                            </div>
+                            @foreach ($data->splice(3, 3) as $item)
+                                <div class="post-entry-1">
+                                    <a href="s{{ route('tempat.detil', $item->id) }}"><img
+                                            src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
+                                            class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                            class="mx-1">&bullet;</span>
+                                        <span>{{ $item->viewers ? $item->viewers : '0' }} views</span>
+                                    </div>
+                                    <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
+                                </div>
+                            @endforeach
                         </div>
 
                         <!-- Trending Section -->
                         <div class="col-lg-4">
 
                             <div class="trending">
-                                <h3>Trending</h3>
+                                <h3>7 of Trending</h3>
                                 <ul class="trending-post">
-                                    <li>
-                                        <a href="single-post.html">
-                                            <span class="number">1</span>
-                                            <h3>The Best Homemade Masks for Face (keep the Pimples Away)</h3>
-                                            <span class="author">Jane Cooper</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="single-post.html">
-                                            <span class="number">2</span>
-                                            <h3>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New
-                                                Haircut</h3>
-                                            <span class="author">Wade Warren</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="single-post.html">
-                                            <span class="number">3</span>
-                                            <h3>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h3>
-                                            <span class="author">Esther Howard</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="single-post.html">
-                                            <span class="number">4</span>
-                                            <h3>9 Half-up/half-down Hairstyles for Long and Medium Hair</h3>
-                                            <span class="author">Cameron Williamson</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="single-post.html">
-                                            <span class="number">5</span>
-                                            <h3>Life Insurance And Pregnancy: A Working Mom’s Guide</h3>
-                                            <span class="author">Jenny Wilson</span>
-                                        </a>
-                                    </li>
+                                    @foreach ($trending as $item)
+                                        <li>
+                                            <a href="single-post.html">
+                                                <span class="number">{{ $loop->iteration }}</span>
+                                                <h3>{{ $item->name }}</h3>
+                                                <span class="author">{{ $item->category->name }} {{ $item->viewers }}
+                                                    View</span>
+                                            </a>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
 

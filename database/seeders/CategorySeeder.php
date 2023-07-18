@@ -20,5 +20,9 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'wisata kuliner'
         ]);
+
+        Category::create([
+            'name' => 'wisata Religi'
+        ]);
     }
 }

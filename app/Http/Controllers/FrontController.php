@@ -9,9 +9,11 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $data = Place::orderBy('created_at', 'DESC')->get();
+        $data = Place::with('category')->orderBy('created_at', 'DESC')->get();
 
-        return view('front.home', compact('data'));
+        $trending = Place::with('category')->limit(7)->orderBy('viewers', 'DESC')->get();
+
+        return view('front.home', compact(['data', 'trending']));
     }
 
     public function maps()
@@ -25,5 +27,11 @@ class FrontController extends Controller
         return view('front.places', compact('data'));
     }
    
+    public function show($id)
+    {
+        $data = Place::findOrFail($id);
+        
+        return view('front.show', compact('data'));
+    }
 
 }
