@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\PlacesDataTable;
 use App\Models\Category;
 use App\Models\Place;
 use Illuminate\Http\Request;
@@ -11,10 +12,11 @@ class PlaceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(PlacesDataTable $dataTable)
     {
         $data= Place::all();
-        return view('admin.place.index', compact('data'));
+        // return view('admin.place.index', compact('data'));
+        return $dataTable->render('admin.place.index');
     }
 
     /**
@@ -55,17 +57,21 @@ class PlaceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Place $place)
+    public function edit($id)
     {
-        //
+        $data = Place::with('category')->where('id', $id)->first();
+        $category = Category::all();
+        return view('admin.place.edit', compact(['data', 'category']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Place $place)
+    public function update(Request $request, $id)
     {
-        //
+        $place = Place::findOrFail($id);
+        $place->update($request->all());
+        return redirect()->route('place.index');
     }
 
     /**
