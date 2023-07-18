@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Someone</a>
+                <a href="#" class="d-block"></a>
             </div>
         </div>
 
