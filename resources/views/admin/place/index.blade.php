@@ -5,9 +5,9 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-0">
-                    
+
                     <div class="col-sm-6">
-                        
+
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -37,7 +37,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            {{ $dataTable->table() }}
+                            {{-- <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -66,7 +67,7 @@
                                         </tr>
                                 </tbody>
                                 @endforeach
-                            </table>
+                            </table> --}}
                         </div>
                     </div>
                 </div>
@@ -75,3 +76,17 @@
     </section>
     </div>
 @endsection
+
+@push('css')
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+@endpush
+
+@push('javascript')
+    <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush

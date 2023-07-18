@@ -18,7 +18,8 @@ class FrontController extends Controller
 
     public function maps()
     {
-        return view('front.maps');
+        $data = Place::all();
+        return view('front.maps', compact('data'));
     }
     public function places()
     {
@@ -30,7 +31,7 @@ class FrontController extends Controller
     public function show($id)
     {
         $data = Place::findOrFail($id);
-        
+
         return view('front.show', compact('data'));
     }
 

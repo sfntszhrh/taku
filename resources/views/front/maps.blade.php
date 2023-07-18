@@ -17,6 +17,25 @@
 @push('css')
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        .marker {
+            background-image: url("{{ asset('front/img/pin.png') }}");
+            background-size: cover;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 @endpush
 
 @push('javascript')
@@ -29,5 +48,57 @@
             center: [113.9014, -6.9946], // starting position [lng, lat]
             zoom: 10.5, // starting zoom
         });
+
+        const geojson = {
+            'type': 'FeatureCollection',
+            'features': [{
+                    // 'type': 'Feature',
+                    'geometry': {
+                        // 'type': 'Point',
+                        'coordinates': [113.79809680057105, -6.885926809516704]
+                    },
+                    'properties': {
+                        'title': 'Pantai',
+                        'description': 'Pantai Slopeng'
+                    }
+                },
+                {
+                    // 'type': 'Feature',
+                    'geometry': {
+                        // 'type': 'Point',
+                        'coordinates': [113.8367269723949, -6.987570541775355]
+                    },
+                    'properties': {
+                        'title': 'Mapbox',
+                        'description': 'Astah Tinggi'
+                    }
+                }
+            ]
+        };
+        // data dari database
+        const lokasi = {
+            "features": {!! json_encode($data->toArray()) !!}
+        }
+
+        // console.log(lokasi.features);
+        // add markers to map
+        for (const feature of lokasi.features) {
+            // create a HTML element for each feature
+            const el = document.createElement('div');
+            el.className = 'marker';
+            // console.log(feature.name);
+            // make a marker for each feature and add it to the map
+            new mapboxgl.Marker(el)
+                .setLngLat([feature.long, feature.lat])
+                .setPopup(
+                    new mapboxgl.Popup({
+                        offset: 25
+                    }) // add popups
+                    .setHTML(
+                        `<h3>${feature.name}</h3><p>${feature.name}</p>`
+                    )
+                )
+                .addTo(map);
+        }
     </script>
 @endpush
