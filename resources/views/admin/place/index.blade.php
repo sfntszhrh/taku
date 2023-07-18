@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-2">
                             {{ $dataTable->table() }}
                             {{-- <table class="table table-hover text-nowrap">
                                 <thead>

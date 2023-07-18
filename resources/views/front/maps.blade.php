@@ -49,38 +49,18 @@
             zoom: 10.5, // starting zoom
         });
 
-        const geojson = {
-            'type': 'FeatureCollection',
-            'features': [{
-                    // 'type': 'Feature',
-                    'geometry': {
-                        // 'type': 'Point',
-                        'coordinates': [113.79809680057105, -6.885926809516704]
-                    },
-                    'properties': {
-                        'title': 'Pantai',
-                        'description': 'Pantai Slopeng'
-                    }
-                },
-                {
-                    // 'type': 'Feature',
-                    'geometry': {
-                        // 'type': 'Point',
-                        'coordinates': [113.8367269723949, -6.987570541775355]
-                    },
-                    'properties': {
-                        'title': 'Mapbox',
-                        'description': 'Astah Tinggi'
-                    }
-                }
-            ]
-        };
+        const nav = new mapboxgl.NavigationControl({
+            visualizePitch: true
+        });
+        map.addControl(nav, 'top-right');
+
+
         // data dari database
         const lokasi = {
             "features": {!! json_encode($data->toArray()) !!}
         }
 
-        // console.log(lokasi.features);
+        console.log(lokasi.features);
         // add markers to map
         for (const feature of lokasi.features) {
             // create a HTML element for each feature
@@ -95,7 +75,7 @@
                         offset: 25
                     }) // add popups
                     .setHTML(
-                        `<h3>${feature.name}</h3><p>${feature.name}</p>`
+                        `<h3>${feature.name}</h3><p>${feature.category.name}</p>`
                     )
                 )
                 .addTo(map);
