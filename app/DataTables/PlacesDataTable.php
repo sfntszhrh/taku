@@ -23,9 +23,12 @@ class PlacesDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($data) {
-                $history = '<a class="btn btn-info btn-sm icon-left" href="place/' . $data->id . '/edit"><i class="ti-eye"></i>Edit</a>';
-                $edit = '<a class="btn btn-warning btn-sm icon-left" href="place/' . $data->id . '"><i class="ti-pencil-alt"></i>Hapus</a>';
-                return '<div class="btn-group">' . $history . $edit . '</div>';
+                $history = '<a class="btn btn-warning btn-sm icon-left" href="place/' . $data->id . '/edit"><i class="fa fa-edit"></i>Edit</a>';
+                $edit = '<a class="btn btn-danger btn-sm icon-left delete" href="javascript:void(0)"><i class="fa fa-trash"></i>Hapus</a>';
+                return '<div class="btn-group" role="group">' . $history . $edit . '</div>';
+            })
+            ->addColumn('category', function($data){
+                return $data->category->name;
             })
             ->addIndexColumn();
     }
@@ -68,12 +71,13 @@ class PlacesDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title('#')->searchable(false),
             Column::make('name')->searchable(true),
+            Column::make('category')->searchable(true),
             Column::make('lat')->searchable(true),
             Column::make('long')->searchable(true),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                //   ->width(60)
                   ->addClass('text-center'),
             // Column::make('created_at'),
             // Column::make('updated_at'),

@@ -18,7 +18,7 @@ class FrontController extends Controller
 
     public function maps()
     {
-        $data = Place::all();
+        $data = Place::with('category')->get();
         return view('front.maps', compact('data'));
     }
     public function places()
