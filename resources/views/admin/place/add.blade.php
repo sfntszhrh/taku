@@ -24,55 +24,63 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Place</h3>
+                                <h3 class="card-title">Tempat Wisata</h3>
                             </div>
                             <form method="POST" action="{{ route('place.store') }}">
                                 <div class="card-body">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="exampleInput">Categorie_Id</label>
-                                        <input name='category_id' type="text" class="form-control"
-                                            id="exampleInputcategory" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="input success">Name</label>
+                                        <label class="col-form-label" for="input success">Nama Tempat Wisata</label>
                                         <input name='name' type="text" class="form-control is warning" id="InputName"
-                                            placeholder="">
+                                            placeholder="" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Input Gambar</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input name="image" type="file" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose
-                                                    File</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div id="map" style='width: 100%; height: 400px;'>
+                                                {{-- isi peta --}}
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInput">Lat</label>
-                                        <input name='lat' type="text" class="form-control" id="exampleInputlat"
-                                            placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInput">Long</label>
-                                        <input name='Long' type="text" class="form-control" id="exampleInputlong"
-                                            placeholder="">
-                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInput">Latitude</label>
+                                                <input name='lat' id="lat" type="text" class="form-control"
+                                                    id="exampleInputlat" placeholder="" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInput">Longitude</label>
+                                                <input name='Long' id="long" type="text" class="form-control"
+                                                    id="exampleInputlong" placeholder="" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInput">Kategori Wisata</label>
+                                                <select name="category_id" class="form-control" required>
+                                                    @foreach ($data as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputFile">Input Gambar</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input name="image" type="file" class="custom-file-input"
+                                                            id="exampleInputFile" multiple>
+                                                        <label class="custom-file-label" for="exampleInputFile">Choose
+                                                            File</label>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
                                     </div>
 
                                     <!-- /.card-body -->
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -82,3 +90,36 @@
         </section>
     </div>
 @endsection
+
+@push('css')
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+@endpush
+
+@push('javascript')
+    <script>
+        mapboxgl.accessToken =
+            'pk.eyJ1Ijoicm9maWFyZWl2IiwiYSI6ImNsYW9xdHZ4cTB1OWYzcW1xaGVzZm84MGEifQ.xmNfOLtRRRWjk_skQzrR8A';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v12', // style URL
+            center: [113.9014, -6.9946], // starting position [lng, lat]
+            zoom: 9, // starting zoom
+        });
+
+        const nav = new mapboxgl.NavigationControl({
+            visualizePitch: true
+        });
+        map.addControl(nav, 'top-right');
+
+        const lat = document.getElementById('lat');
+        const long = document.getElementById('long');
+
+        map.on('click', (e) => {
+            let latLang = e.lngLat;
+            console.log(latLang);
+            lat.value = latLang.lat;
+            long.value = latLang.lng;
+        })
+    </script>
+@endpush

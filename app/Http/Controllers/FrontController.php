@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        return view('front.home');
+        $data = Place::with('category')->orderBy('created_at', 'DESC')->get();
+
+        $trending = Place::with('category')->limit(7)->orderBy('viewers', 'DESC')->get();
+
+        return view('front.home', compact(['data', 'trending']));
     }
 
     public function maps()
@@ -17,9 +22,16 @@ class FrontController extends Controller
     }
     public function places()
     {
-        return view('front.places');
+        $data = Place::orderBy('created_at', 'DESC')->get();
+
+        return view('front.places', compact('data'));
     }
    
+    public function show($id)
+    {
+        $data = Place::findOrFail($id);
+        
+        return view('front.show', compact('data'));
+    }
 
 }
-

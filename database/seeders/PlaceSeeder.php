@@ -12,15 +12,18 @@ class PlaceSeeder extends Seeder
      */
     public function run(): void
     {
-        Place::create([
-            'category_id'=> '2',
-            'name'=> 'Asta Tinggi',
-            'description'=>'keraton sumenep merupakan',
-            'image'=> 'image',
-            'lat'=> '100',
-            'long'=> '100',
+        // $arr = [1, 2, 3];
+        // Place::create([
+        //     'category_id'=> array_rand($arr, 3),
+        //     'name'=> 'Asta Tinggi',
+        //     'description'=>'keraton sumenep merupakan',
+        //     'image'=> 'image',
+        //     'lat'=> '100',
+        //     'long'=> '100',
 
-        ]);
+        // ]);
+
+        Place::factory()->count(20)->create();
     }
 }
  
