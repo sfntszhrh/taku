@@ -23,7 +23,7 @@
       
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">LOGIN</p>
 
       <form action="{{ route('login') }}" method="post">
         @csrf
@@ -50,9 +50,7 @@
           <div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
+             
             </div>
           </div>
           <!-- /.col -->
@@ -73,12 +71,8 @@
       </div> --}}
       <!-- /.social-auth-links -->
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
+      
+      
     </div>
     <!-- /.card-body -->
   </div>
