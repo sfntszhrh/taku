@@ -45,13 +45,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="exampleInput">Latitude</label>
+                                                <label for="exampleInput">Lattitude</label>
                                                 <input name='lat' value="{{ $data->lat }}" id="lat"
                                                     type="text" class="form-control" id="exampleInputlat" placeholder=""
                                                     readonly>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInput">Longitude</label>
+                                                <label for="exampleInput">Longtitude</label>
                                                 <input name='long' value="{{ $data->long }}" id="long"
                                                     type="text" class="form-control" id="exampleInputlong" placeholder=""
                                                     readonly>

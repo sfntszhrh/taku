@@ -54,13 +54,7 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nama Kategori</th>
-                                            <th class="text-center">Aksi</th>
-                                        </tr>
-                                    </tfoot>
+                                   
                                 </table>
                             </div>
                             <!-- /.card-body -->

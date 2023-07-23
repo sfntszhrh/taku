@@ -35,7 +35,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        $data = Category::all();
+        $data = Category::all(); // SELECT * FROM category;
         return view('admin.place.add', compact('data'));
     }
 
