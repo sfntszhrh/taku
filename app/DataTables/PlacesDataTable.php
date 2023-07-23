@@ -72,8 +72,8 @@ class PlacesDataTable extends DataTable
             Column::make('DT_RowIndex')->title('#')->searchable(false),
             Column::make('name')->searchable(true),
             Column::make('category')->searchable(true),
-            Column::make('lat')->searchable(true),
-            Column::make('long')->searchable(true),
+            Column::make('lat')->searchable(true)->title('Latitude'),
+            Column::make('long')->searchable(true)->title('Longitude'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

@@ -90,7 +90,9 @@
                                     <!-- /.card-body -->
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary float-right">Update</button>
+                                    <button type="button" onclick="window.history.back()"
+                                        class="btn btn-secondary">Batal</button>
                                 </div>
                             </form>
                         </div>
@@ -104,13 +106,11 @@
 @push('css')
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
-    <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
 @endpush
 
 @push('javascript')
     <script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-    <!-- Summernote -->
     <script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         mapboxgl.accessToken =

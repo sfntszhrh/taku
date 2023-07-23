@@ -14,14 +14,7 @@
         </section>
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <!-- /.row -->
             <div class="row">
                 <div class="col-12">
