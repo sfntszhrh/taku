@@ -59,7 +59,7 @@ class PlaceController extends Controller
             $img = Image::make($file);
             $img->backup();
             // TAHAP PERTAMA
-            $resizeImgPertama = $img->resize(750, 400, function ($constraint) {
+            $resizeImgPertama = $img->resize(900, 571, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
@@ -69,17 +69,32 @@ class PlaceController extends Controller
 
             // TAHAP KEDUA
             // membuat kanvas
-            $canvas2 = Image::canvas(240, 160);
+            $canvas2 = Image::canvas(900, 571);
             // membuat ukuran
-            $resizeImgKedua  = $img->resize(240, 160);
+            $resizeImgKedua  = $img->resize(900, 571);
 
-            if (!File::isDirectory($this->path . '/' . 240)) {
-                File::makeDirectory($this->path . '/' . 240);
+            if (!File::isDirectory($this->path . '/' . 571)) {
+                File::makeDirectory($this->path . '/' . 571);
             }
             // masukan perubahan gambar kedalam kanvas
             $canvas2->insert($resizeImgKedua, 'center');
             // simpan ke dalam folder
-            $resizeImgKedua->save($this->path . '/' . 240 . '/' . $fileName);
+            $resizeImgKedua->save($this->path . '/' . 571 . '/' . $fileName);
+            $img->reset();
+
+            // TAHAP KETIGA
+            // membuat kanvas
+            $canvas3 = Image::canvas(900, 900);
+            // membuat ukuran
+            $resizeImgTiga  = $img->resize(900, 900);
+
+            if (!File::isDirectory($this->path . '/' . 900)) {
+                File::makeDirectory($this->path . '/' . 900);
+            }
+            // masukan perubahan gambar kedalam kanvas
+            $canvas3->insert($resizeImgKedua, 'center');
+            // simpan ke dalam folder
+            $resizeImgTiga->save($this->path . '/' . 900 . '/' . $fileName);
             $img->reset();
         } else {
             $fileName = $request->image;
@@ -131,7 +146,7 @@ class PlaceController extends Controller
             $img = Image::make($file);
             $img->backup();
             // TAHAP PERTAMA
-            $resizeImgPertama = $img->resize(750, 400, function ($constraint) {
+            $resizeImgPertama = $img->resize(900, 571, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
@@ -141,17 +156,32 @@ class PlaceController extends Controller
 
             // TAHAP KEDUA
             // membuat kanvas
-            $canvas2 = Image::canvas(240, 160);
+            $canvas2 = Image::canvas(900, 571);
             // membuat ukuran
-            $resizeImgKedua  = $img->resize(240, 160);
+            $resizeImgKedua  = $img->resize(900, 571);
 
-            if (!File::isDirectory($this->path . '/' . 240)) {
-                File::makeDirectory($this->path . '/' . 240);
+            if (!File::isDirectory($this->path . '/' . 571)) {
+                File::makeDirectory($this->path . '/' . 571);
             }
             // masukan perubahan gambar kedalam kanvas
             $canvas2->insert($resizeImgKedua, 'center');
             // simpan ke dalam folder
-            $resizeImgKedua->save($this->path . '/' . 240 . '/' . $fileName);
+            $resizeImgKedua->save($this->path . '/' . 571 . '/' . $fileName);
+            $img->reset();
+
+            // TAHAP KETIGA
+            // membuat kanvas
+            $canvas3 = Image::canvas(900, 900);
+            // membuat ukuran
+            $resizeImgTiga  = $img->resize(900, 900);
+
+            if (!File::isDirectory($this->path . '/' . 900)) {
+                File::makeDirectory($this->path . '/' . 900);
+            }
+            // masukan perubahan gambar kedalam kanvas
+            $canvas3->insert($resizeImgKedua, 'center');
+            // simpan ke dalam folder
+            $resizeImgTiga->save($this->path . '/' . 900 . '/' . $fileName);
             $img->reset();
         } else {
             $fileName = $request->image;
@@ -162,6 +192,8 @@ class PlaceController extends Controller
         $place->name = $request->name;
         $place->description = $request->description;
         $place->image = $fileName;
+        $place->lat = $request->lat;
+        $place->long = $request->long;
         $place->update();
         return redirect()->route('place.index');
     }
