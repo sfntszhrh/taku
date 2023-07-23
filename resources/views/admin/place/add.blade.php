@@ -26,13 +26,13 @@
                             <div class="card-header">
                                 <h3 class="card-title">Tempat Wisata</h3>
                             </div>
-                            <form method="POST" action="{{ route('place.store') }}">
+                            <form method="POST" action="{{ route('place.store') }}" enctype="multipart/form-data">
                                 <div class="card-body">
                                     @csrf
                                     <div class="form-group">
                                         <label class="col-form-label" for="input success">Nama Tempat Wisata</label>
                                         <input name='name' type="text" class="form-control is warning" id="InputName"
-                                            placeholder="" required>
+                                            placeholder="Tulis nama tempat wisata" required>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -58,6 +58,10 @@
                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description">Deskripsi Wisata</label>
+                                                <textarea name="description" id="description" class="form-control" cols="30" rows="5"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputFile">Input Gambar</label>
@@ -94,9 +98,14 @@
 @push('css')
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
 @endpush
 
 @push('javascript')
+    <script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         mapboxgl.accessToken =
             'pk.eyJ1Ijoicm9maWFyZWl2IiwiYSI6ImNsYW9xdHZ4cTB1OWYzcW1xaGVzZm84MGEifQ.xmNfOLtRRRWjk_skQzrR8A';
@@ -120,6 +129,21 @@
             console.log(latLang);
             lat.value = latLang.lat;
             long.value = latLang.lng;
+        })
+
+        $(function() {
+            bsCustomFileInput.init();
+        });
+
+        $(function() {
+            // Summernote
+            $('#description').summernote()
+
+            // CodeMirror
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                mode: "htmlmixed",
+                theme: "monokai"
+            });
         })
     </script>
 @endpush

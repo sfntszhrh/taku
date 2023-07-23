@@ -27,7 +27,8 @@
                             <div class="card-header">
                                 <h3 class="card-title">Tempat Wisata</h3>
                             </div>
-                            <form method="POST" action="{{ route('place.update', $data->id) }}">
+                            <form method="POST" action="{{ route('place.update', $data->id) }}"
+                                enctype="multipart/form-data">
                                 <div class="card-body">
                                     @csrf
                                     @method('PUT')
@@ -102,6 +103,7 @@
 @endpush
 
 @push('javascript')
+    <script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script>
         mapboxgl.accessToken =
             'pk.eyJ1Ijoicm9maWFyZWl2IiwiYSI6ImNsYW9xdHZ4cTB1OWYzcW1xaGVzZm84MGEifQ.xmNfOLtRRRWjk_skQzrR8A';
@@ -125,6 +127,10 @@
             // console.log(latLang);
             lat.value = latLang.lat;
             long.value = latLang.lng;
-        })
+        });
+
+        $(function() {
+            bsCustomFileInput.init();
+        });
     </script>
 @endpush
