@@ -122,8 +122,47 @@ class PlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            // beri nama atas file dengan waktu sekarang plus nomor unik
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            // upload original file
+            $img = Image::make($file);
+            $img->backup();
+            // TAHAP PERTAMA
+            $resizeImgPertama = $img->resize(750, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+
+            Image::make($resizeImgPertama)->save($this->path. '/'.$fileName);
+            $img->reset();
+
+            // TAHAP KEDUA
+            // membuat kanvas
+            $canvas2 = Image::canvas(240, 160);
+            // membuat ukuran
+            $resizeImgKedua  = $img->resize(240, 160);
+
+            if (!File::isDirectory($this->path . '/' . 240)) {
+                File::makeDirectory($this->path . '/' . 240);
+            }
+            // masukan perubahan gambar kedalam kanvas
+            $canvas2->insert($resizeImgKedua, 'center');
+            // simpan ke dalam folder
+            $resizeImgKedua->save($this->path . '/' . 240 . '/' . $fileName);
+            $img->reset();
+        } else {
+            $fileName = $request->image;
+        }
+
         $place = Place::findOrFail($id);
-        $place->update($request->all());
+        $place->category_id = $request->category_id;
+        $place->name = $request->name;
+        $place->description = $request->description;
+        $place->image = $fileName;
+        $place->update();
         return redirect()->route('place.index');
     }
 
