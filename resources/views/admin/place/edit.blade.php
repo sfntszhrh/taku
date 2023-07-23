@@ -66,11 +66,15 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
+                                                <label for="description">Deskripsi Wisata</label>
+                                                <textarea name="description" id="description" class="form-control" cols="30" rows="5">{{ $data->description }}</textarea>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="exampleInputFile">Input Gambar</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input name="image" type="file" class="custom-file-input"
-                                                            id="exampleInputFile" multiple>
+                                                        <input name="image" value="{{ $data->image }}" type="file"
+                                                            class="custom-file-input" id="exampleInputFile" multiple>
                                                         <label class="custom-file-label" for="exampleInputFile">Choose
                                                             File</label>
                                                     </div>
@@ -100,10 +104,14 @@
 @push('css')
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
 @endpush
 
 @push('javascript')
     <script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         mapboxgl.accessToken =
             'pk.eyJ1Ijoicm9maWFyZWl2IiwiYSI6ImNsYW9xdHZ4cTB1OWYzcW1xaGVzZm84MGEifQ.xmNfOLtRRRWjk_skQzrR8A';
@@ -132,5 +140,16 @@
         $(function() {
             bsCustomFileInput.init();
         });
+
+        $(function() {
+            // Summernote
+            $('#description').summernote()
+
+            // CodeMirror
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                mode: "htmlmixed",
+                theme: "monokai"
+            });
+        })
     </script>
 @endpush

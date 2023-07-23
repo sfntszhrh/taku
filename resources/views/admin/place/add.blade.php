@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInput">Longitude</label>
-                                                <input name='Long' id="long" type="text" class="form-control"
+                                                <input name='long' id="long" type="text" class="form-control"
                                                     id="exampleInputlong" placeholder="" readonly>
                                             </div>
                                             <div class="form-group">

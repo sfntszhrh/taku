@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\PlacesDataTable;
-use App\Models\Category;
+use Carbon\Carbon;
 use App\Models\Place;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\DataTables\PlacesDataTable;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PlaceController extends Controller
 {
+    public $path;
+    public $dimension;
+
+    public function __construct()
+    {
+        $this->path = "assets/img";
+        $this->dimension = [245, 360, 750];
+    }
     /**
      * Display a listing of the resource.
      */
@@ -39,7 +50,49 @@ class PlaceController extends Controller
             'description' => 'required',
         ]);
 
-        $save = Place::create($request->all());
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            // beri nama atas file dengan waktu sekarang plus nomor unik
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            // upload original file
+            $img = Image::make($file);
+            $img->backup();
+            // TAHAP PERTAMA
+            $resizeImgPertama = $img->resize(750, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+
+            Image::make($resizeImgPertama)->save($this->path. '/'.$fileName);
+            $img->reset();
+
+            // TAHAP KEDUA
+            // membuat kanvas
+            $canvas2 = Image::canvas(240, 160);
+            // membuat ukuran
+            $resizeImgKedua  = $img->resize(240, 160);
+
+            if (!File::isDirectory($this->path . '/' . 240)) {
+                File::makeDirectory($this->path . '/' . 240);
+            }
+            // masukan perubahan gambar kedalam kanvas
+            $canvas2->insert($resizeImgKedua, 'center');
+            // simpan ke dalam folder
+            $resizeImgKedua->save($this->path . '/' . 240 . '/' . $fileName);
+            $img->reset();
+        } else {
+            $fileName = $request->image;
+        }
+
+        $save = Place::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+            'lat' => $request->lat,
+            'long' => $request->long,
+            'image' => $fileName,
+        ]);
 
         if ($save) {
             return redirect()->route('place.index');
