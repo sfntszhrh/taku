@@ -16,7 +16,7 @@
                         @if (!$data->image)
                             <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt="" class="img-fluid">
                         @else
-                            <img src="{{ asset('assets/img/240/' . $data->image) }}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/img/571/' . $data->image) }}" alt="" class="img-fluid">
                         @endif
                     </a>
                     <div class="ps-md-5 mt-4 mt-md-0">
