@@ -10,20 +10,70 @@
             </div>
 
             <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="row g-5">
+                        <div class="col-lg-4 custom-border">
+                            @foreach ($data->splice(1, 3) as $item)
+                                <div class="post-entry-1">
+                                    <a href="{{ route('tempat.detil', $item->id) }}">
 
-                <div class="d-md-flex post-entry-2 half">
-                    <a href="#" class="me-4 thumbnail">
-                        @if (!$data->image)
-                            <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt="" class="img-fluid">
-                        @else
-                            <img src="{{ asset('assets/img/571/' . $data->image) }}" alt="" class="img-fluid">
-                        @endif
-                    </a>
-                    <div class="ps-md-5 mt-4 mt-md-0">
-                        <div class="post-meta mt-2"></div>
-                        <h2 class="mb-4 display-4">{{ $data->name }}</h2>
+                                        @if (!$item->image)
+                                            <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
+                                                class="img-fluid">
+                                        @else
+                                            <img src="{{ asset('assets/img/571/' . $item->image) }}" alt=""
+                                                class="img-fluid">
+                                        @endif
+                                    </a>
+                                    <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                            class="mx-1">&bullet;</span>
+                                        <span>{{ $item->viewers ? $item->viewers : '0' }} views</span>
+                                    </div>
+                                    <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
+                                </div>
+                            @endforeach
 
-                        {!! $data->description !!}
+                        </div>
+                        <div class="col-lg-4 border-start custom-border">
+                            @foreach ($data->splice(3, 3) as $item)
+                                <div class="post-entry-1">
+                                    <a href="{{ route('tempat.detil', $item->id) }}">
+                                        @if (!$item->image)
+                                            <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
+                                                class="img-fluid">
+                                        @else
+                                            <img src="{{ asset('assets/img/571/' . $item->image) }}" alt=""
+                                                class="img-fluid">
+                                        @endif
+                                    </a>
+                                    <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                            class="mx-1">&bullet;</span>
+                                        <span>{{ $item->viewers ? $item->viewers : '0' }} views</span>
+                                    </div>
+                                    <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="col-lg-4 border-start custom-border">
+                            @foreach ($data->splice(6, 3) as $item)
+                                <div class="post-entry-1">
+                                    <a href="{{ route('tempat.detil', $item->id) }}">
+                                        @if (!$item->image)
+                                            <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
+                                                class="img-fluid">
+                                        @else
+                                            <img src="{{ asset('assets/img/571/' . $item->image) }}" alt=""
+                                                class="img-fluid">
+                                        @endif
+                                    </a>
+                                    <div class="post-meta"><span class="date">{{ $item->category->name }}</span> <span
+                                            class="mx-1">&bullet;</span>
+                                        <span>{{ $item->viewers ? $item->viewers : '0' }} views</span>
+                                    </div>
+                                    <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
