@@ -24,7 +24,7 @@ class FrontController extends Controller
     public function places()
     {
         $data = Place::orderBy('created_at', 'DESC')->get();
-
+        // dd($data);
         return view('front.places', compact('data'));
     }
    

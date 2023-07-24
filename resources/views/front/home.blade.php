@@ -88,7 +88,7 @@
                                             <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
                                                 class="img-fluid">
                                         @else
-                                            <img src="{{ asset('assets/img/240/' . $item->image) }}" alt=""
+                                            <img src="{{ asset('assets/img/571/' . $item->image) }}" alt=""
                                                 class="img-fluid">
                                         @endif
                                     </a>
