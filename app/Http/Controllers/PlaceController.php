@@ -203,6 +203,20 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        {
+            $del = Place::findOrFail($id)->delete();
+    
+            if ($del) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Hapus data berhasil',
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Hapus data gagal',
+                ]);
+            }
+        }
     }
 }

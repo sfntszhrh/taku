@@ -53,8 +53,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-    
-
+        $category = Category::all();
+        return view('admin.category.edit', compact('category')); 
     }
 
     /**

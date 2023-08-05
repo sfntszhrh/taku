@@ -1,11 +1,9 @@
 @extends('front.index')
-
 @section('content')
     <section>
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-12 text-center mb-5">
-
                 </div>
             </div>
 
@@ -16,7 +14,6 @@
                             @foreach ($data->splice(1, 3) as $item)
                                 <div class="post-entry-1">
                                     <a href="{{ route('tempat.detil', $item->id) }}">
-
                                         @if (!$item->image)
                                             <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
                                                 class="img-fluid">

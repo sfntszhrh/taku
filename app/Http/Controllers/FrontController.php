@@ -32,7 +32,9 @@ class FrontController extends Controller
     {
         $data = Place::findOrFail($id);
 
-        return view('front.places', compact('data'));
+        return view('front.detil', compact('data'));
     }
+
+
 
 }

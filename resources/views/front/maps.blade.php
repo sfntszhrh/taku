@@ -75,7 +75,7 @@
                         offset: 25
                     }) // add popups
                     .setHTML(
-                        `<h3>${feature.name}</h3><p>${feature.category.name}</p>`
+                        `<h3><a href="/front/places/${feature.id}">${feature.name}</a></h3><p>${feature.category.name}</p>`
                     )
                 )
                 .addTo(map);
