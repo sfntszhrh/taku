@@ -201,22 +201,13 @@ class PlaceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Place $place)
+    public function destroy($id)
     {
-        {
-            $del = Place::findOrFail($id)->delete();
-    
-            if ($del) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Hapus data berhasil',
-                ]);
-            } else {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Hapus data gagal',
-                ]);
-            }
+        $del = Place::where('id', $id)->delete();
+        if ($del) {
+            return response()->json([
+                'success' => true
+            ]);
         }
     }
 }

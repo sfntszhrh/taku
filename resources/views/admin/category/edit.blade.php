@@ -27,17 +27,18 @@
                             <div class="card-header">
                                 <h3 class="card-title">Edit Data</h3>
                             </div>
-                            <form method="POST" action="{{ route('category.update') }}">
+                            <form method="POST" action="{{ route('category.update', $data->id) }}">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1"></label>
-                                        <input type="category" name="category" class="form-control"
-                                            id="exampleInputcategory" placeholder="Enter category">
+                                        <input type="category" name="name" value="{{ $data->name }}"
+                                            class="form-control" id="exampleInputcategory" placeholder="Enter category">
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                                    <button type="submit" class="btn btn-primary float-right">Update</button>
                                     <button type="button" onclick="window.history.back()"
                                         class="btn btn-primary">Batal</button>
                                 </div>

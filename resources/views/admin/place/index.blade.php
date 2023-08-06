@@ -82,4 +82,28 @@
     <script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+
+    <script>
+        $(document).ready(function() {
+            $('table').on('click', '#delete', function() {
+                let URL = $(this).data('url');
+                let token = $("meta[name='csrf-token']").attr("content");
+                let id = $(this).data('id');
+                let trObj = $(this);
+
+                $.ajax({
+                    url: URL,
+                    type: 'DELETE',
+                    data: {
+                        '_token': token,
+                    },
+                    success: function(response) {
+                        if (response.success === true) {
+                            trObj.parents("tr").remove();
+                        }
+                    }
+                })
+            })
+        })
+    </script>
 @endpush
