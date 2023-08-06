@@ -53,8 +53,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-    
-
+        $data = Category::findOrFail($id);
+        return view('admin.category.edit', compact('data'));
     }
 
     /**
@@ -62,7 +62,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $data = Category::findOrFail($id);
+        $data->name = $request->name;
+        $update = $data->update();
+        if ($update) {
+            return redirect()->route('category.index');
+        } else {
+            return back()->withInput();
+        }
     }
 
     /**

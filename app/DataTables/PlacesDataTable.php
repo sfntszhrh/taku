@@ -23,9 +23,9 @@ class PlacesDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($data) {
-                $history = '<a class="btn btn-warning btn-sm icon-left" href="place/' . $data->id . '/edit"><i class="fa fa-edit"></i>Edit</a>';
-                $edit = '<a class="btn btn-danger btn-sm icon-left delete" href="javascript:void(0)"><i class="fa fa-trash"></i>Hapus</a>';
-                return '<div class="btn-group" role="group">' . $history . $edit . '</div>';
+                $edit = '<a class="btn btn-warning btn-sm icon-left" href="place/' . $data->id . '/edit"><i class="fa fa-edit"></i>Edit</a>';
+                $delete = '<a class="btn btn-danger btn-sm icon-left delete" id="delete" href="javascript:void(0)" data-id="'.$data->id.'" data-url="place/'. $data->id .'"><i class="fa fa-trash"></i>Hapus</a>';
+                return '<div class="btn-group" role="group">' . $edit . $delete . '</div>';
             })
             ->addColumn('category', function($data){
                 return $data->category->name;
