@@ -23,7 +23,7 @@
                 </li>
                 <li><a href="{{ route('tempat.wisata') }}">Place</a></li>
                 <li><a href="{{ route('peta.wisata') }}">Maps</a></li>
-                <li><a href="#">Contact</a></li>
+               
             </ul>
         </nav><!-- .navbar -->
 

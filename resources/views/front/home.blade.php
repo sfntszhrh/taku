@@ -14,17 +14,16 @@
                                             <h2>{{ $item->name }}</h2>
                                             <p>{!! $item->description !!}</p>
                                         </div>
-                                    </a>
+                                    </a> 
                                 </div>
                             @endforeach
-                        </div>
+                        </div> 
                         <div class="custom-swiper-button-next">
                             <span class="bi-chevron-right"></span>
                         </div>
                         <div class="custom-swiper-button-prev">
                             <span class="bi-chevron-left"></span>
                         </div>
-
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>

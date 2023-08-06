@@ -32,7 +32,6 @@ Route::get('/front/maps', [FrontController::class, 'maps'])->name('peta.wisata')
 Route::get('/front/places', [FrontController::class, 'places'])->name('tempat.wisata');
 Route::get('/front/places/{id}', [FrontController::class, 'show'])->name('tempat.detil');
 
-
 // Route::group(['prefix' => 'admin'], function() {
 
 // })

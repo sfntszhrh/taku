@@ -35,4 +35,6 @@ class FrontController extends Controller
         return view('front.show', compact('data'));
     }
 
+
+
 }
