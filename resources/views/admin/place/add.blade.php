@@ -32,7 +32,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label" for="input success">Nama Tempat Wisata</label>
                                         <input name='name' type="text" class="form-control is warning" id="InputName"
-                                            placeholder="Tulis nama tempat wisata" required>
+                                            placeholder="Nama Wisata" required>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">

@@ -31,9 +31,10 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1"></label>
+                                        <label for="kategoriwisata"></label>
                                         <input type="category" name="category" class="form-control"
-                                            id="exampleInputcategory" placeholder="Enter category">
+                                            id="exampleInputcategory" placeholder="Enter Categories">
+                                            
                                     </div>
                                 </div>
                                 <div class="card-footer">
