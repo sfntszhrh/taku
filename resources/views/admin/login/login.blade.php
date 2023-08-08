@@ -17,6 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
+  <img src="{{ asset('img/logo-pemkab-sumenep.jpg') }}" alt="logo pemkab sumenep" width="200px">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="{{ route('login') }}" class="h1"><b>e</b>GIS</a>
@@ -24,7 +25,7 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">LOGIN</p>
-
+     
       <form action="{{ route('login') }}" method="post">
         @csrf
         <div class="input-group mb-3">
