@@ -30,6 +30,8 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
   
 
     @stack('css')

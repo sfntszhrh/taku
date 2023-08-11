@@ -1,5 +1,5 @@
 @extends('admin.layouts.index')
-
+@include('admin.home.grafik')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -87,7 +87,15 @@
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+      <div class="container">
+        <div id='chart'>
+          @yield('chart')
+        </div>
+      </div>
     </section>
+   
+    
     <!-- /.content -->
+    
   </div>
 @endsection
