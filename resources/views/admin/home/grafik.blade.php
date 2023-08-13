@@ -9,13 +9,13 @@
     <script>
         Highcharts.chart('chartContainer', {
             chart: {
-                type: 'area',
+                type: 'line',
             },
             title: {
-                text: 'Pengunjung'
+                text: 'Visitors Chart'
             },
             subtitle: {
-                text: 'tanggal Kunjungan',
+                text: 'Visit Information',
                 align: 'center',
                 verticalAlign: 'bottom'
             },
@@ -24,33 +24,40 @@
                 align: 'left',
                 verticalAlign: 'top',
                 x: 100,
-                y: 70,
+                y: 60,
                 floating: true,
                 borderWidth: 1,
                 backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
             },
-            xAxis: {
-                categories: ['nama', 'tanggal', 'bulan', 'tahun', '2002', '2028']
+            xAxis: { 
+                //data dummy
+                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni']
             },
             yAxis: {
                 title: {
-                    text: 'Pendapatan'
+                    text: 'Visit*'
                 }
             },
             plotOptions: {
                 area: {
-                    fillOpacity: 0.5
+                    fillOpacity: 0.2
                 }
             },
             credits: {
-                enabled: false
+                enabled: false 
             },
             series: [{
-                name: 'Target',
-                data: [1, 5, 10, 30]
+                name: 'Wisata',
+                data: [1, 5, 10, 30, 40, 50]
             },{
-                name: 'Realisasi',
-                data: [30, 50, 10, 40]
+                name: 'Hotel',
+                data: [30, 50, 10, 40, 20, 70]
+            },{ 
+                name: 'Tempat Belanja',
+                data: [20, 50, 10, 40, 25, 30]  
+            },{
+                name: 'Kuliner',
+                data: [5, 15, 30, 40, 50, 80]
             }]
         });        
     </script>
