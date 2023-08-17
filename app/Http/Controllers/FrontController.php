@@ -35,6 +35,10 @@ class FrontController extends Controller
         return view('front.detil', compact('data'));
     }
 
+    public function categories($id)
+    {
+        $data = Place::where('category_id', $id)->orderBy('created_at', 'DESC')->get();
 
-
+        return view('front.categories', compact('data'));
+    }
 }

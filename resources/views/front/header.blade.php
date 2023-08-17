@@ -11,19 +11,17 @@
             <ul>
                 <li><a href="{{ route('front.home') }}">Home</a></li>
 
-                <li class="dropdown"><a href="category.html"><span>Categories</span> <i
+                <li class="dropdown"><a href="#"><span>Categories</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-
-                        <li><a href="#">Wisata</a></li>
-                        <li><a href="#">Kuliner</a></li>
-                        <li><a href="#">Hotel</a></li>
-                        <li><a href="#">Tempat Belanja</a></li>
+                        @foreach ($category as $item)
+                            <li><a href="{{ route('tempat.category', $item->id) }}">{{ ucwords($item->name) }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li><a href="{{ route('tempat.wisata') }}">Place</a></li>
                 <li><a href="{{ route('peta.wisata') }}">Maps</a></li>
-               
+
             </ul>
         </nav><!-- .navbar -->
 
