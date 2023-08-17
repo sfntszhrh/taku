@@ -24,7 +24,7 @@
             <div class="card-header text-center">
                 <img src="{{ asset('admin/dist/img/logo-pemkab-sumenep.jpg') }}" alt="logo pemkab sumenep"
                     width="200px">
-                <a href="{{ route('login') }}" class="h1"><b>E</b>WISATA</a>
+                <a href="{{ route('login') }}" class="h1"><b>e</b>WISATA</a>
 
             </div>
             <div class="card-body">
@@ -34,6 +34,11 @@
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        {{-- <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="password">
+                        @error('username')
+                         <div class="invalid-feedback">{{$message}}</div>
+                        @enderror --}}
+                            
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>

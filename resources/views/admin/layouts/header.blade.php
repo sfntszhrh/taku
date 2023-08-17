@@ -15,6 +15,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
+        
         <li class="nav-item">
             <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                 <i class="fas fa-search"></i>
@@ -32,6 +33,7 @@
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
+                       
                     </div>
                 </form>
             </div>
@@ -47,5 +49,18 @@
                 <i class="fas fa-th-large"></i>
             </a>
         </li>
+        <div class="dropdown">
+            <button id="my-dropdown" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username}}</button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="my-dropdown">
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none">
+                @csrf
+              </form>
+            </div>
+        </div>
+        <!-- In resources/views/dashboard.blade.php (or any relevant view) -->
+
+
+
     </ul>
 </nav>

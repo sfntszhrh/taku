@@ -14,9 +14,20 @@
                 <li class="dropdown"><a href="#"><span>Categories</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
+<<<<<<< HEAD
                         @foreach ($category as $item)
                             <li><a href="{{ route('tempat.category', $item->id) }}">{{ ucwords($item->name) }}</a></li>
                         @endforeach
+=======
+
+                        <li><a href="#">Wisata Alam</a></li>
+                        <li><a href="#">Wisata Religi</a></li>
+                        <li><a href="#">Wisata Sejarah</a></li>
+                        <li><a href="#">Wisata Minat Khusus</a></li>
+                        <li><a href="#">Kuliner</a></li>
+                        <li><a href="#">Hotel</a></li>
+                        <li><a href="#">Tempat Belanja</a></li>
+>>>>>>> ef82bc2c025cf4f5c38e7493494b4276dcc1cd13
                     </ul>
                 </li>
                 <li><a href="{{ route('tempat.wisata') }}">Place</a></li>
