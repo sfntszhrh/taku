@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dropdown Menu Example</title>
+    <title>Categories</title>
 </head>
 <body>
     <h1>Dropdown Menu Example</h1>

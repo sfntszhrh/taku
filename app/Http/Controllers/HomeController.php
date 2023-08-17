@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -11,8 +12,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home.index');
-        return view('admin.home.grafik');
+        $data = DB::table('places as p')->join('categories as c', 'c.id', '=', 'p.category_id')
+            ->select(DB::raw('SUM(p.viewers) as viewers'), 'c.name')
+            // ->select('c.name as name')
+            ->groupBy('p.category_id', 'c.name')
+            ->get();
+        return view('admin.home.index', compact(['data' => 'data']));
     }
 
     /**

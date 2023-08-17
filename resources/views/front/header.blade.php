@@ -15,7 +15,10 @@
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
 
-                        <li><a href="#">Wisata</a></li>
+                        <li><a href="#">Wisata Alam</a></li>
+                        <li><a href="#">Wisata Religi</a></li>
+                        <li><a href="#">Wisata Sejarah</a></li>
+                        <li><a href="#">Wisata Minat Khusus</a></li>
                         <li><a href="#">Kuliner</a></li>
                         <li><a href="#">Hotel</a></li>
                         <li><a href="#">Tempat Belanja</a></li>
