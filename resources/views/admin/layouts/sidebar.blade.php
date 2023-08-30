@@ -51,7 +51,7 @@
                 <li class="nav-item">
                     <a href="{{ route('place.index') }}"
                         class="nav-link {{ Request::is('admin/place', 'admin/place/*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-map"></i>
                         <p>
                             Place
                         </p>
