@@ -22,7 +22,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Place</h3>
                             <div class="card-tools">
-                                <ul class="pagination pagination-sm m-0 float-right">
+                                <ul class="pagination pagination-sm y-3 float-right">
                                     <li class="page-item"><a class="page-link" href="{{ route('place.create') }}">ADD</a>
                                     </li>
                                 </ul>

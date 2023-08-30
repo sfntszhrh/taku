@@ -12,7 +12,7 @@
                                         style="background-image: url('{{ asset('assets/img/' . $item->image) }}');">
                                         <div class="img-bg-inner">
                                             <h2>{{ $item->name }}</h2>
-                                            <p>{!! $item->description !!}</p>
+                                            {{-- <p>{!! $item->description !!}</p> --}}
                                         </div>
                                     </a> 
                                 </div>

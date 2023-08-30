@@ -45,7 +45,10 @@
                             </div>
                         </div>
                         @error('email')
-                            <small>{{ $message }}</small>
+                            {{ $message }} 
+                        @enderror
+                        @error('password')
+                            {{ $message }} 
                         @enderror
                     </div>
                     <div class="input-group mb-3">

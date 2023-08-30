@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @extends('front.index')
 
 @section('content')
@@ -79,22 +78,3 @@
         </div>
     </section>
 @endsection
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Categories</title>
-</head>
-<body>
-    <h1>Dropdown Menu Example</h1>
-    <form>
-        <label for="dropdown">Select an option:</label>
-        <select id="dropdown" name="dropdown">
-            @foreach($options as $option)
-                <option value="{{ $option->value }}">{{ $option->label }}</option>
-            @endforeach
-        </select>  
-    </form>
-</body>
-</html>
->>>>>>> ef82bc2c025cf4f5c38e7493494b4276dcc1cd13
