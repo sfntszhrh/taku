@@ -32,21 +32,21 @@
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Name Category</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Name Category</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td class="text-center">
                                                     <a href="{{ route('category.edit', $item->id) }}"
-                                                        class="btn btn-sm btn-warning">Edit</a>
+                                                        class="btn btn-sm btn-info">Edit</a>
                                                     <a id="delete" data-url="{{ route('category.destroy', $item->id) }}"
-                                                        href="javascript:void(0)" class="btn btn-sm btn-danger">Delete</a>
+                                                        href="javascript:void(0)" class="btn btn-sm btn-warning">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

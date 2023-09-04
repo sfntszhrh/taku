@@ -5,16 +5,13 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-0">
-
                     <div class="col-sm-6">
-
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
         <!-- Main content -->
         <section class="content">
-
             <!-- /.row -->
             <div class="row">
                 <div class="col-12">

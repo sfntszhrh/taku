@@ -32,7 +32,7 @@
                    
                     <a href="{{ route('home.index') }}"
                         class="nav-link {{ Request::is('admin/home') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-home"></i>
                         <p>
                             Dashboard
                         </p>

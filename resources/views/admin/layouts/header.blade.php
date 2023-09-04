@@ -37,7 +37,6 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-       
         <div class="dropdown">
             <button id="my-dropdown" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username}}</button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="my-dropdown">

@@ -5,7 +5,7 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <h1>Tambah Data</h1>
                     </div>
                     <div class="col-sm-6">
@@ -30,35 +30,40 @@
                                 <div class="card-body">
                                     @csrf
                                     <div class="form-group">
-                                        <label class="col-form-label" for="input success">Nama Tempat Wisata</label>
+                                        <label class="col-form-label" for="input success">Nama Wisata</label>
                                         <input name='name' type="text" class="form-control is warning" id="InputName"
                                             placeholder="Nama Wisata" required>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInput">Kategori Wisata</label>
+                                        <select name="category_id" class="form-control" required>
+                                            @foreach ($data as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div id="map" style='width: 100%; height: 400px;'>
                                                 {{-- isi peta --}}
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="exampleInput">Lattitude</label>
-                                                <input name='lat' id="lat" type="text" class="form-control"
-                                                    id="exampleInputlat" placeholder="" readonly>
+                                            <label for="exampleInput">Lattitude</label>
+                                            <input name='lat' id="lat" type="text" class="form-control"
+                                                id="exampleInputlat" placeholder="" readonly>
                                             </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="exampleInput">Longitude</label>
-                                                <input name='long' id="long" type="text" class="form-control"
-                                                    id="exampleInputlong" placeholder="" readonly>
+                                            <label for="exampleInput">Longitude</label>
+                                            <input name='long' id="long" type="text" class="form-control"
+                                                id="exampleInputlong" placeholder="" readonly>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInput">Kategori Wisata</label>
-                                                <select name="category_id" class="form-control" required>
-                                                    @foreach ($data as $item)
-                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Deskripsi Wisata</label>
                                                 <textarea name="description" id="description" class="form-control" cols="30" rows="5"></textarea>

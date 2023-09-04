@@ -32,17 +32,12 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
-  
-
     @stack('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
         <!-- Preloader -->
-
-
         <!-- Navbar -->
         @include('admin.layouts.header')
         <!-- /.navbar -->

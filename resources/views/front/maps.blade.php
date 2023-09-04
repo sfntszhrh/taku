@@ -3,7 +3,7 @@
 @section('content')
     <section id="posts" class="posts">
         <div class="container" data-aos="fade-up">
-            <div class="row g-5">
+            <div class="row g-2">
                 <div class="card">
                     <div class="card-body">
                         <div id='map' style='width: 100%; height: 600px;'></div>

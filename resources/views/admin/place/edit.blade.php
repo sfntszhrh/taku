@@ -32,13 +32,26 @@
                                 <div class="card-body">
                                     @csrf
                                     @method('PUT')
-                                    <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                         <label class="col-form-label" for="input success">Nama Tempat Wisata</label>
                                         <input name='name' type="text" value="{{ $data->name }}"
                                             class="form-control is warning" id="InputName" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="exampleInput">Kategori Wisata</label>
+                                            <select name="category_id" class="form-control" required>
+                                                @foreach ($category as $item)
+                                                    <option value="{{ $item->id }}" @selected($data->category->id == $item->id)>
+                                                        {{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div id="map" style='width: 100%; height: 400px;'>
                                                 {{-- isi peta --}}
                                             </div>
@@ -47,44 +60,38 @@
                                             <div class="form-group">
                                                 <label for="exampleInput">Lattitude</label>
                                                 <input name='lat' value="{{ $data->lat }}" id="lat"
-                                                    type="text" class="form-control" id="exampleInputlat" placeholder=""
-                                                    readonly>
+                                                type="text" class="form-control" id="exampleInputlat" placeholder=""
+                                                readonly>
                                             </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInput">Longtitude</label>
                                                 <input name='long' value="{{ $data->long }}" id="long"
-                                                    type="text" class="form-control" id="exampleInputlong" placeholder=""
-                                                    readonly>
+                                                type="text" class="form-control" id="exampleInputlong" placeholder=""
+                                                readonly>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInput">Kategori Wisata</label>
-                                                <select name="category_id" class="form-control" required>
-                                                    @foreach ($category as $item)
-                                                        <option value="{{ $item->id }}" @selected($data->category->id == $item->id)>
-                                                            {{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                        </div>
                                             <div class="form-group">
                                                 <label for="description">Deskripsi Wisata</label>
                                                 <textarea name="description" id="description" class="form-control" cols="30" rows="5">{{ $data->description }}</textarea>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputFile">Input Gambar</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input name="image" value="{{ $data->image }}" type="file"
-                                                            class="custom-file-input" id="exampleInputFile" multiple>
-                                                        <label class="custom-file-label" for="exampleInputFile">Choose
-                                                            File</label>
-                                                    </div>
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Input Gambar</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input name="image" value="{{ $data->image }}" type="file"
+                                                    class="custom-file-input" id="exampleInputFile" multiple>
+                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                    File</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
                                             </div>
                                         </div>
-
                                     </div>
 
                                     <!-- /.card-body -->
@@ -119,7 +126,7 @@
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             center: [113.9014, -6.9946], // starting position [lng, lat]
-            zoom: 9, // starting zoom
+            zoom: 15, // starting zoom
         });
 
         const nav = new mapboxgl.NavigationControl({

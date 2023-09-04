@@ -61,7 +61,6 @@
                             @foreach ($data->splice(1, 3) as $item)
                                 <div class="post-entry-1">
                                     <a href="{{ route('tempat.detil', $item->id) }}">
-
                                         @if (!$item->image)
                                             <img src="{{ asset('front/img/post-landscape-2.jpg') }}" alt=""
                                                 class="img-fluid">
@@ -77,7 +76,6 @@
                                     <h2><a href="{{ route('tempat.detil', $item->id) }}">{{ $item->name }}</a></h2>
                                 </div>
                             @endforeach
-
                         </div>
                         <div class="col-lg-4 border-start custom-border">
                             @foreach ($data->splice(3, 3) as $item)
@@ -102,7 +100,6 @@
 
                         <!-- Trending Section -->
                         <div class="col-lg-4">
-
                             <div class="trending">
                                 <h3>7 of Trending</h3>
                                 <ul class="trending-post">
@@ -111,19 +108,15 @@
                                             <a href="{{ route('tempat.detil', $item->id) }}">
                                                 <span class="number">{{ $loop->iteration }}</span>
                                                 <h3>{{ $item->name }}</h3>
-                                                <span class="author">{{ $item->category->name }} {{ $item->viewers }}
-                                                    View</span>
+                                                <span class="author">{{ $item->category->name }} {{ $item->viewers }}View</span>
                                             </a>
                                         </li>
                                     @endforeach
-
                                 </ul>
                             </div>
-
                         </div> <!-- End Trending Section -->
                     </div>
                 </div>
-
             </div> <!-- End .row -->
         </div>
     </section>

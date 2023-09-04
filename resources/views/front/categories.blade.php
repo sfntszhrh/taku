@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                     <div class="row g-5">
                         <div class="col-lg-4 custom-border">
-                            @foreach ($data->splice(1, 3) as $item)
+                            @foreach ($data->splice(0, 3) as $item)
                                 <div class="post-entry-1">
                                     <a href="{{ route('tempat.detil', $item->id) }}">
                                         @if (!$item->image)
